@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         // Card structure
                         card.innerHTML = `
-                            <div class="card h-100">
+                            <div class="card h-100 md-3">
                                 <img src="${country.flags.png}" class="card-img-top" alt="Flag of ${country.name.common}">
                                 <div class="card-body">
                                     <h5 class="card-title">${country.name.common}</h5>
