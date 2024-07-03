@@ -25,19 +25,26 @@ document.addEventListener("DOMContentLoaded", function () {
                     populateDetail("Population", country.population);
                     populateDetail("Region", country.region);
                     populateDetail("Subregion", country.subregion);
-                    populateDetail("Timezone", country.timezones[0]); 
+                    populateDetail("Timezone", country.timezones[0]);
 
-                     // Use the provided Google Maps URL
-                     const gMapURL = country.maps.googleMaps;
-                     if (gMapURL) {
-                         // Replace goo.gl/maps with www.google.com/maps/embed?pb=
-                         const embedURL = gMapURL.replace("https://goo.gl/maps/", "https://www.google.com/maps/embed?pb=");
-                         map.src = embedURL;
-                     } else {
-                         map.src = ""; // Clear the iframe if no valid URL is provided
-                     }
+                    // Assuming you have fetched the country data and obtained the Google Maps URL
+                    const gMapURL = country.maps.googleMaps;
 
-               
+                    // Function to update the map iframe with the Google Maps URL
+                    function updateMap(gMapURL) {
+                        if (gMapURL) {
+                            // Replace goo.gl/maps with www.google.com/maps/embed?pb=
+                            const embedURL = gMapURL.replace("https://goo.gl/maps/", "https://www.google.com/maps/embed?pb=");
+                            map.src = embedURL;
+                        } else {
+                            map.src = ""; // Clear the iframe if no valid URL is provided
+                        }
+                    }
+
+                    // Call the function to update the map with the fetched Google Maps URL
+                    updateMap(gMapURL);
+
+
                 } else {
                     officialName.innerText = "Country not found";
                     name.innerText = "";

@@ -10,18 +10,61 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-        .countries {
-            margin-top: -150px; 
+
+        body {
+            background: linear-gradient(90deg, rgb(240, 239, 255) 0%, rgb(134, 134, 189) 35%, rgb(110, 192, 208) 100%);
+            font-family: "Roboto Mono", monospace;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
         }
+
+        .container {
+            margin-top: -150px;
+        }
+
+        .countries {
+            margin-top: -150px;
+        }
+
+        .card h-100 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .single-card-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 300px !important; */
+            margin-top: -150px;
+            
+        }
+
+        .flag-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .title {
+            font-family: "Roboto Mono", monospace;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
     </style>
 </head>
 
 <body>
-    <div class="text-center col-md-12 pt-5">
-        <h1>Find Country Details</h1>
+    <div class="container text-center col-md-12 pt-5 mt-3">
+        <h1 class="title">🌎 Find Country Details 🔎</h1>
     </div>
 
-    <div class="container min-vh-100 d-flex justify-content-center align-items-center pb-5">
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
         <div class="card" style="width: 24rem;">
             <div class="card-body">
                 <h5 class="card-title text-center">Enter a Country Name to Find Details</h5>
@@ -36,16 +79,13 @@
     </div>
 
     <div class="container countries">
-        <div class="row" id="countryCards">
+        <div class="row justify-content-center" id="countryCards">
             <!-- Country cards will be populated by JavaScript -->
         </div>
     </div>
-    
+
 
     <script src="app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
