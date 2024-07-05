@@ -3,6 +3,12 @@ function submitSearch() {
     window.location.href = `result.html?country=${searchValue}`;
 }
 
+ // Click More Details button
+ function moreDetails() {
+    let searchValue = country.name.common;
+    window.location.href = `result.html?country=${encodeURIComponent(searchValue)}`;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const countryNameInput = document.getElementById("countryName");
     const countryCardsContainer = document.getElementById("countryCards");
@@ -19,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Check if the country name matches the input value (case insensitive)
                     if (country.name.common.toLowerCase().includes(countryNameInput.value.toLowerCase())) {
 
+                       
                         // Create card element
                         let card = document.createElement("div");
                         card.classList.add("col-md-3", "mb-4");
@@ -34,6 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <p class="card-text">Population: ${country.population}</p>
                                 <div class="mt-auto">
                                     <a href="${country.maps.googleMaps}" target="_blank" class="btn btn-primary">View on Google Maps</a>
+                                </div>
+                                <div class="mt-auto">
+                                    <button type="button" class="btn btn-danger" onclick="moreDetails()">More Details</button>
                                 </div>
                             </div>
                         </div>`;
@@ -63,8 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
         fetchAndDisplayCountries();
     });
 
-     // Function to update the map iframe with the Google Maps URL
-     function updateMap(gMapURL) {
+    // Function to update the map iframe with the Google Maps URL
+    function updateMap(gMapURL) {
         const map = document.getElementById("map");
         map.src = gMapURL;
     }

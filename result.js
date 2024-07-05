@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let capital = document.getElementById("capital");
     let map = document.getElementById("map");
 
+
     if (countryName) {
         fetch(`https://restcountries.com/v3.1/name/${countryName}`)
             .then(res => res.json())
@@ -21,11 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     img.innerHTML = `<img src="${country.flags.png}" alt="Flag of ${country.name.common}" class="img-fluid">`;
 
                     // Populate additional details
-                    populateDetail("Area", country.area);
-                    populateDetail("Population", country.population);
-                    populateDetail("Region", country.region);
-                    populateDetail("Subregion", country.subregion);
-                    populateDetail("Timezone", country.timezones[0]);
+                    populateDetail("Area", country.area, "Km²");
+                    populateDetail("Population", country.population, "People");
+                    populateDetail("Region", country.region, "");
+                    populateDetail("Subregion", country.subregion, "");
+                    populateDetail("Timezone", country.timezones[0], "");
 
                     // Assuming you have fetched the country data and obtained the Google Maps URL
                     const gMapURL = country.maps.googleMaps;
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
         map.src = "";
     }
 
-    function populateDetail(label, value) {
+    function populateDetail(label, value1, value2) {
         const detailContainer = document.createElement("div");
         detailContainer.classList.add("row");
         detailContainer.innerHTML = `
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h5>${label}:</h5>
             </div>
             <div class="col-md-6">
-                <h5 class="text-end">${value}</h5>
+                <h5 class="text-end">${value1} ${value2}</h5>
             </div>
         `;
         document.querySelector(".card-body").appendChild(detailContainer);
