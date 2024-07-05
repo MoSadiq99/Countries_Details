@@ -3,12 +3,6 @@ function submitSearch() {
     window.location.href = `result.html?country=${searchValue}`;
 }
 
- // Click More Details button
- function moreDetails() {
-    let searchValue = country.name.common;
-    window.location.href = `result.html?country=${encodeURIComponent(searchValue)}`;
-}
-
 document.addEventListener("DOMContentLoaded", function () {
     const countryNameInput = document.getElementById("countryName");
     const countryCardsContainer = document.getElementById("countryCards");
@@ -41,9 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <p class="card-text">Population: ${country.population}</p>
                                 <div class="mt-auto">
                                     <a href="${country.maps.googleMaps}" target="_blank" class="btn btn-primary">View on Google Maps</a>
-                                </div>
-                                <div class="mt-auto">
-                                    <button type="button" class="btn btn-danger" onclick="moreDetails()">More Details</button>
                                 </div>
                             </div>
                         </div>`;
