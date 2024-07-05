@@ -39,6 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
                         </div>`;
 
+                        // Add event listener to the card to redirect on click
+                        card.addEventListener("click", function() {
+                            window.location.href = `result.html?country=${country.name.common}`;
+                        });
+
                         // Append card to container
                         countryCardsContainer.appendChild(card);
                     }
